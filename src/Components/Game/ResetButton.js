@@ -8,7 +8,6 @@ const useStyles = makeStyles({
         border: 0,
         borderRadius: 3,
         boxShadow: '0 3px 5px 3px rgb(255, 0, 0)',
-        color: 'white',
         height: 48,
         padding: '0 30px',
         fontWeight: 500,
@@ -16,12 +15,18 @@ const useStyles = makeStyles({
     },
 });
 
+
+
 export default function ResetButton() {
     const classes = useStyles();
 
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <div className = "">
-            <Button className={classes.root}>Reset Game</Button> 
+            <Button onClick={refreshPage} className={classes.root}>Reset Game</Button>
         </div>
     )
 }

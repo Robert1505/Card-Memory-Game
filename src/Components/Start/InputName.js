@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import {connect} from 'react-redux';
+import {setName} from '../../actions';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,15 +20,25 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function InputName() {
+function InputName() {
 
     const classes = useStyles();
 
     return (
         <div className = "text-center mt-32">
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField className = {classes.text} id="outlined-basic" label="Enter Your Name" variant="outlined" color="secondary" />
+                <TextField onChange = {(e) => setName(e.target.value)}  className = {classes.text} id="outlined-basic" label="Enter Your Name" variant="outlined" color="secondary" />
             </form>
         </div>   
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        playerName: state.playerName.playerName
+    }
+}
+
+export default  connect(mapStateToProps, {
+    setName
+})(InputName);

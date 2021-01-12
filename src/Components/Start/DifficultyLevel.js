@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -30,10 +30,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function DifficultyLevel() {
+export default function DifficultyLevel(props) {
     
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [cards, setCards] = useState(null); //when the difficulty is set, this variable will receive the number of cards
+    const [time, setTime] = useState(null); //when the difficulty is set, this variable will receive the time limit to solve the puzzle
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -41,6 +44,22 @@ export default function DifficultyLevel() {
     
     const handleClose = () => {
         setOpen(false);
+    };
+
+    if(cards === 12) {
+        setTime(30);
+        console.log('time', time)
+        console.log('cards', cards)
+    }
+    else if(cards === 18) {
+        setTime(45);
+        console.log('time', time)
+        console.log('cards', cards)
+    }
+    else if(cards === 24) {
+        setTime(65);
+        console.log('time', time)
+        console.log('cards', cards)
     };
 
     return (
@@ -55,11 +74,12 @@ export default function DifficultyLevel() {
                 <Select
                 native
                 input={<Input id="demo-dialog-native" />}
+                onChange = {(e) => {setCards(e.target.value)}}
                 >
-                <option aria-label="None" value="" />
-                <option >Easy</option>
-                <option >Medium</option>
-                <option >Hard</option>
+                <option aria-label="None" value=""/>
+                <option value = "12">Easy</option>
+                <option value = "18">Medium</option>
+                <option value = "24">Hard</option>
                 </Select>
             </FormControl>
             </form>

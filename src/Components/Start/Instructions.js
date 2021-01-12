@@ -44,7 +44,7 @@ export default function Instructions() {
                         &#x25CF; STORY! &#x25CF; 
                         <br/>
                         <br/>
-                        &#x25CF; You are a thief which is arrested for bank robbery. You want to escape from prison, but you need to break a high security sistem first. Escape from Prison is a CARD MEMORY GAME where you need to discover WHICH CARDS MATCH to ESCAPE from the PRISON. The CARDS represent a HIGH SECURITY PUZZLE and you need to HACK it! <br/>
+                        &#x25CF; You are a thief which is arrested for bank robbery. You want to escape from prison, but you need to break a high security system first. Escape from Prison is a CARD MEMORY GAME where you need to discover WHICH CARDS MATCH to ESCAPE from the PRISON. The CARDS represent a HIGH SECURITY PUZZLE and you need to HACK it! <br/>
                         <br/>
                         <br/>
                         &#x25CF; Press 'P' to PAUSE the GAME! <br/>
@@ -56,9 +56,9 @@ export default function Instructions() {
                         <br/>
                         &#x25CF; DIFFICULTY LEVELS: <br/>
                         <br/>
-                            &#x25CF; EASY - you have 16 cards and 45 seconds to solve the puzzle <br/>
-                            &#x25CF; MEDIUM - you have 16 cards and 30 seconds to solve the puzzle <br/>
-                            &#x25CF; HARD - you have 36 cards and 80 seconds to solve the puzzle <br/>
+                            &#x25CF; EASY - you have 12 cards and 30 seconds to solve the puzzle <br/>
+                            &#x25CF; MEDIUM - you have 18 cards and 40 seconds to solve the puzzle <br/>
+                            &#x25CF; HARD - you have 24 cards and 65 seconds to solve the puzzle <br/>
                         <br/>
                         <br/>
                         &#x25CF; GOOD LUCK!!! &#x25CF; <br/>

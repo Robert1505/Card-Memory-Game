@@ -1,7 +1,7 @@
-html, body {
+/* html, body {
     margin: 0;
     padding: 0;
-}
+} */
 
 .background{
     background-image: url(../background.jpg);
@@ -17,6 +17,8 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    flex: 1;
+    min-width: 100vw;
 }
 
 /* Popup style */
@@ -58,4 +60,47 @@ html, body {
     text-align: center;
     border: 1px solid #999;
     font-size: 20px;
+}
+
+/* Card Flip */
+
+html,body,#root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    background: transparent;
+}
+
+#root > div {
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.c {
+    position: absolute;
+    max-width: 148px;
+    max-height: 148px;
+    width: 50ch;
+    height: 50ch;
+    cursor: pointer;
+    will-change: transform, opacity;
+}
+
+.front,
+.back {
+    background-size: cover;
+}
+
+.back {
+    background-image: url('../card.jpeg');
+}
+
+.front {
+    /* background-image: url(https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&w=1181&q=80&auto=format&fit=crop); */
 }
