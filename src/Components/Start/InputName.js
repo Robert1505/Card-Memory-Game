@@ -35,10 +35,16 @@ function InputName() {
 
 const mapStateToProps = (state) => {
     return {
-        playerName: state.playerName.playerName
+        playerName: state.player.playerName
     }
 }
 
-export default  connect(mapStateToProps, {
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setName: () => dispatch(setName())
+    }
+}
+
+export default  connect(mapStateToProps, {mapDispatchToProps,
     setName
 })(InputName);

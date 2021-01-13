@@ -24,13 +24,13 @@ export default function Board(props) {
 
     for (let i = 0; i < dummyData.length / 2; i++) {
       let randomPoz = Math.floor(Math.random() * (dummyData.length + 1));
-      while (dummyData[randomPoz] != 0) {
+      while (dummyData[randomPoz] !== 0) {
         randomPoz = Math.floor(Math.random() * (dummyData.length + 1));
       }
       dummyData[randomPoz] = i;
 
       randomPoz = Math.floor(Math.random() * (dummyData.length + 1));
-      while (dummyData[randomPoz] != 0) {
+      while (dummyData[randomPoz] !== 0) {
         randomPoz = Math.floor(Math.random() * (dummyData.length + 1));
       }
       dummyData[randomPoz] = i;

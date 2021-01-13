@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,6 +9,9 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import {chooseDifficulty} from '../../actions';
+import {connect} from 'react-redux';
+
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -30,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function DifficultyLevel(props) {
+function DifficultyLevel(props) {
     
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
@@ -46,21 +49,17 @@ export default function DifficultyLevel(props) {
         setOpen(false);
     };
 
-    if(cards === 12) {
-        setTime(30);
-        console.log('time', time)
-        console.log('cards', cards)
-    }
-    else if(cards === 18) {
-        setTime(45);
-        console.log('time', time)
-        console.log('cards', cards)
-    }
-    else if(cards === 24) {
-        setTime(65);
-        console.log('time', time)
-        console.log('cards', cards)
-    };
+    useEffect(() => {
+        if(cards === 12) {
+            setTime(30);
+        }
+        else if(cards === 18) {
+            setTime(45);
+        }
+        else if(cards === 24) {
+            setTime(65);
+        };
+    }, [cards,time])
 
     return (
         <div className = "text-center mt-24">
@@ -93,3 +92,14 @@ export default function DifficultyLevel(props) {
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        cards: state.player.cards,
+        time: state.player.time
+    }
+}
+
+export default connect(mapStateToProps, {
+    chooseDifficulty
+})(DifficultyLevel);
