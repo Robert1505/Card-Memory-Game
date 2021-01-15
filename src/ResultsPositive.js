@@ -1,17 +1,23 @@
 import React from 'react';
-import Message from './Components/Results/Message';
-import Moves from './Components/Results/Moves';
-import Time  from './Components/Results/Time'
-import GoToMainMenuButton from './Components/Results/GoToMainMenuButton';
-import StartAnotherGameButton from './Components/Results/StartAnotherGameButton';
+import Message from './Components/ResultsPositive/Message';
+import Moves from './Components/ResultsPositive/Moves';
+import Time  from './Components/ResultsPositive/Time'
+import GoToMainMenuButton from './Components/ResultsPositive/GoToMainMenuButton';
+import StartAnotherGameButton from './Components/ResultsPositive/StartAnotherGameButton';
 import {Link} from 'react-router-dom';
 
-export default function Results() {
+export default function ResultsPositive() {
     return (
-        <div>
+        <div className = "backgroundresults">
             <Message />
-            <Moves />
-            <Time />
+            <div className = "flex mt-32">
+                <div className = "flex-1">
+                    <Moves />
+                </div>
+                <div className = "flex-1">
+                    <Time />    
+                </div>
+            </div>
             <div className = "text-center absolute inset-x-0 bottom-0 mb-8">
                 <div className = "flex">
                     <div className = "flex-1">

@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function InputName() {
+function InputName(props) {
 
     const classes = useStyles();
 
     return (
         <div className = "text-center mt-32">
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField onChange = {(e) => setName(e.target.value)}  className = {classes.text} id="outlined-basic" label="Enter Your Name" variant="outlined" color="secondary" />
+                <TextField onChange = {Object.assign(props.playerName, (e) => (e.target.value))}  className = {classes.text} id="outlined-basic" label="Enter Your Name" variant="outlined" color="secondary" />
             </form>
         </div>   
     )

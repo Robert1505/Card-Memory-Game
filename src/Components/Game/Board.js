@@ -5,18 +5,18 @@ import Grid from "@material-ui/core/Grid";
 
 export default function Board(props) {
   const colors = [
-    "#160F29",
-    "#070707",
-    "#F5E960",
-    "#EF7674",
-    "#D91E36",
-    "#F9F9F9",
+    "#E3170A",
+    "#42BFDD",
+    "#FF66B3",
+    "#23CE6B",
+    "#DEB841",
+    "#37323E",
     "#274C77",
-    "#8B8C89",
-    "#BBDB9B",
-    "#9FA0C3",
-    "#7B435B",
-    "#30C5FF",
+    "#FF6F59",
+    "#9893DA",
+    "FB5012",
+    "#4B1D3F",
+    "#00FF00",
   ];
 
   const generateCards = () => {
