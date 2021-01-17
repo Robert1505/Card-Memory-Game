@@ -1,12 +1,21 @@
-import React, {useState} from 'react';
-import { Redirect } from 'react-router';
+import React, {useEffect, useState} from 'react';
+import { useHistory } from 'react-router';
+import {useSelector} from 'react-redux';
 
 
 export default function Timer() {
     
-    const [totalSeconds, setTotalSeconds] = useState(10);
+    const history = useHistory();
+    const difficultyTime = useSelector(state => state.player.game.time);
+    const [totalSeconds, setTotalSeconds] = useState(difficultyTime);
     const [minutes, setMinutes] = useState((totalSeconds / 60) % 60);
     const [seconds, setSeconds] = useState(totalSeconds % 60);
+
+    useEffect(() => {
+        if (totalSeconds === -1) {
+            history.push("resultsnegative")
+        }
+    }, [totalSeconds]);
 
     setTimeout(() => {
         if(totalSeconds !== -1){

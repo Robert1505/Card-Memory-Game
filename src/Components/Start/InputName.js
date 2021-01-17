@@ -27,7 +27,7 @@ function InputName(props) {
     return (
         <div className = "text-center mt-32">
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField onChange = {Object.assign(props.playerName, (e) => (e.target.value))}  className = {classes.text} id="outlined-basic" label="Enter Your Name" variant="outlined" color="secondary" />
+                <TextField onChange={(e) => props.setName(e.target.value)}  className = {classes.text} id="outlined-basic" label="Enter Your Name" variant="outlined" color="secondary" />
             </form>
         </div>   
     )
@@ -35,7 +35,7 @@ function InputName(props) {
 
 const mapStateToProps = (state) => {
     return {
-        playerName: state.player.playerName
+        playerName: state.player.player
     }
 }
 

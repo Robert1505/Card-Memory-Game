@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useSpring, animated as a } from "react-spring";
 import Card from "./Card";
 import Grid from "@material-ui/core/Grid";
+import {useSelector, useDispatch} from 'react-redux';
+import {initializeBoard} from '../../actions'
 
 export default function Board(props) {
+  const dispatch = useDispatch();
+  const cards = useSelector(state => state.player.game.cards);
+  const dummyData = new Array(cards).fill(0);
   const colors = [
     "#E3170A",
     "#42BFDD",
@@ -19,8 +24,13 @@ export default function Board(props) {
     "#00FF00",
   ];
 
+  useEffect(() => {
+    dispatch(initializeBoard())
+  }, [])
+
+  
+
   const generateCards = () => {
-    const dummyData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     for (let i = 0; i < dummyData.length / 2; i++) {
       let randomPoz = Math.floor(Math.random() * (dummyData.length + 1));
@@ -36,10 +46,10 @@ export default function Board(props) {
       dummyData[randomPoz] = i;
     }
 
-    return dummyData.map((data) => {
+    return dummyData.map((data, idx) => {
       return (
         <Grid item xs={2}>
-          <Card color={colors[data]} />
+          <Card color={colors[data]} idx={idx}/>
         </Grid>
       );
     });

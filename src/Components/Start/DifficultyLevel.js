@@ -59,7 +59,12 @@ function DifficultyLevel(props) {
         else if(cards === 24) {
             setTime(65);
         };
-    }, [cards,time])
+    }, [cards])
+
+    useEffect(() => {
+        console.log("updated", {cards, time});
+        props.chooseDifficulty(cards, time);
+    }, [time])
 
     return (
         <div className = "text-center mt-24">
@@ -73,12 +78,12 @@ function DifficultyLevel(props) {
                 <Select
                 native
                 input={<Input id="demo-dialog-native" />}
-                onChange = {(e) => {setCards(e.target.value)}}
+                onChange = {(e) => {setCards(+e.target.value)}}
                 >
                 <option aria-label="None" value=""/>
-                <option value = "12">Easy</option>
-                <option value = "18">Medium</option>
-                <option value = "24">Hard</option>
+                <option value={12}>Easy</option>
+                <option value={18}>Medium</option>
+                <option value={24}>Hard</option>
                 </Select>
             </FormControl>
             </form>
