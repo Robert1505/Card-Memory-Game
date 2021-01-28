@@ -7,6 +7,11 @@ import RetryButton from './Components/ResultsNegative/RetryButton';
 import {Link} from 'react-router-dom';
 
 export default function ResultsNegative() {
+
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <div className = "backgroundresultsnegative">
             <Message />

@@ -57,7 +57,7 @@ export default function Instructions() {
                         &#x25CF; DIFFICULTY LEVELS: <br/>
                         <br/>
                             &#x25CF; EASY - you have 12 cards and 30 seconds to solve the puzzle <br/>
-                            &#x25CF; MEDIUM - you have 18 cards and 40 seconds to solve the puzzle <br/>
+                            &#x25CF; MEDIUM - you have 18 cards and 45 seconds to solve the puzzle <br/>
                             &#x25CF; HARD - you have 24 cards and 65 seconds to solve the puzzle <br/>
                         <br/>
                         <br/>

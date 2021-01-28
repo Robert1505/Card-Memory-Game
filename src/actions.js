@@ -22,20 +22,44 @@ export const increaseMoves = () => {
     }
 }
 
-export const flipCard = (cardNumber) => {
+export const flippedCards = (cardNumber) => {
     return {
-        type: "FLIP_CARD",
+        type: "FLIPPED_CARDS",
         payload: {
             cardNumber
         }
     }
 }
 
-export const initializeBoard = (cards) => {
+export const initializeBoard = (card) => {
     return {
         type: "INITIALIZE_BOARD",
         payload: {
-            cards
+            card
         }
+    }
+}
+
+export const flipBack = () => {
+    return {
+        type: "FLIP_BACK",
+    }
+}
+
+export const resetMoves = () => {
+    return {
+        type: "RESET_MOVES",
+    }
+}
+
+export const resetGame = () => {
+    return {
+        type: "RESET_GAME",
+    }
+}
+
+export const resetButton = () => {
+    return {
+        type: "RESET_BUTTON",
     }
 }

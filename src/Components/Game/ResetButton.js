@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import {useSelector, useDispatch} from 'react-redux';
+import {resetButton} from '../../actions';
+import {refresh} from './Countdown';
 
 const useStyles = makeStyles({
     root: {
@@ -19,14 +22,11 @@ const useStyles = makeStyles({
 
 export default function ResetButton() {
     const classes = useStyles();
-
-    function refreshPage() {
-        window.location.reload(false);
-    }
+    const dispatch = useDispatch();
 
     return (
         <div className = "">
-            <Button onClick={refreshPage} className={classes.root}>Reset Game</Button>
+            <Button onClick={() => dispatch(resetButton())} className={classes.root}>Reset Game</Button>
         </div>
     )
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import {resetGame} from '../../actions';
 
 const useStyles = makeStyles({
     root: {
@@ -17,10 +19,14 @@ const useStyles = makeStyles({
 
 export default function StartAnotherGameButton() {
     const classes = useStyles();
+    const dispatch = useDispatch();
+
+    // const moves = useSelector(state => state.player.game.moves);
+
 
     return (
         <div className = "">
-            <Button className={classes.root}>Retry</Button>
+            <Button onClick = {() => dispatch(resetGame())} className={classes.root}>Retry</Button>
         </div>
     )
 }
