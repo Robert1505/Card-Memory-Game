@@ -5,39 +5,40 @@ import Grid from "@material-ui/core/Grid";
 import {useSelector, useDispatch} from 'react-redux';
 import {flipBack, initializeBoard} from '../../actions';
 import {useHistory} from 'react-router-dom';
+import {timer} from '../../actions';
 
 
 
 export default function Board(props) {
   const dispatch = useDispatch();
   const history = useHistory();
+  let wins = localStorage.getItem('wins');
   const cardsNumber = useSelector(state => state.player.game.cards);   
   let board = useSelector(state => state.player.game.board);
-  let time = 0;
   let pairsFound = useSelector(state => state.player.game.pairsFound);
-
-  // const colors = [
-  //   "#E3170A",
-  //   "#42BFDD",
-  //   "#FF66B3",
-  //   "#23CE6B",
-  //   "#DEB841",
-  //   "#37323E",
-  //   "#274C77",
-  //   "#FF6F59",
-  //   "#9893DA",
-  //   "FB5012",
-  //   "#4B1D3F",
-  //   "#00FF00",
-  // ];
-
+  // let bestTimeEasy = localStorage.getItem('bestTimeEasy');
+  // let bestTimeMedium = localStorage.getItem('bestTimeMedium');
+  // let bestTimeHard = localStorage.getItem('bestTimeHard');
+  let score = useSelector(state => state.player.game.time); 
+  let defaultTime = useSelector(state => state.player.game.defaultTime);
 
   useEffect(() => {
-    dispatch(initializeBoard())
+    dispatch(initializeBoard());
   }, [])
 
   useEffect(() => {
     if(pairsFound === cardsNumber / 2){
+      wins++;
+      localStorage.setItem('wins', wins);
+      if(cardsNumber === 12){
+        localStorage.setItem('bestTimeEasy', defaultTime - score);
+      }
+      else if(cardsNumber === 18){
+        localStorage.setItem('bestTimeMedium', defaultTime - score);
+      }
+      else if(cardsNumber === 24){
+        localStorage.setItem('bestTimeHard', defaultTime - score);
+      }
       history.push('/resultspositive');
     }
   }, [pairsFound])

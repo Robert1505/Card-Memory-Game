@@ -12,9 +12,10 @@ const INITIAL_STATE = {
         moves: 0,
         lastTwo: [],
         pairsFound: 0,
-        gameCompleted: false,
         board: [],
-        defaultTime: 0
+        defaultTime: 30,
+        minutes: 1,
+        seconds: 30
     }
 };
 
@@ -82,6 +83,7 @@ export const gameReducer = (oldState = INITIAL_STATE, action) => {
         case "INITIALIZE_BOARD": {
             newGame = {...oldState.game};
             newGame.board = [];
+            newGame.time = newGame.defaultTime;
             newGame.addTime = 0;
             for (let i = 0; i < newGame.cards; i++) {
                 newGame.board.push({
@@ -130,6 +132,7 @@ export const gameReducer = (oldState = INITIAL_STATE, action) => {
             newGame.moves = 0;
             newGame.pairsFound = 0;
             newGame.lastTwo = [];
+            newGame.time = newGame.defaultTime;
             return {
                 ...oldState,
                 game: {...newGame}
@@ -141,7 +144,7 @@ export const gameReducer = (oldState = INITIAL_STATE, action) => {
             newGame.pairsFound = 0;
             newGame.lastTwo = [];
             newGame.board = [];
-            newGame.time = oldState.game.defaultTime;
+            newGame.time = newGame.defaultTime;
             for (let i = 0; i < newGame.cards; i++) {
                 newGame.board.push({
                     value: false,
@@ -161,6 +164,14 @@ export const gameReducer = (oldState = INITIAL_STATE, action) => {
                 }
                 newGame.board[randomPoz].color = colors[i];
             }
+            return {
+                ...oldState,
+                game: {...newGame}
+            }
+        }
+        case "TIMER": {
+            newGame = {...oldState.game};
+            newGame.time = newGame.time - 1;
             return {
                 ...oldState,
                 game: {...newGame}

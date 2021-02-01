@@ -39,18 +39,18 @@ export default function Statistics() {
                     <br/>
                     <br/>
                     <b>
-                        &#x25CF; Escapes(wins): <br/>
+                        &#x25CF; Escapes(wins): {localStorage.getItem('wins')} <br/>
                         <br/>
-                        &#x25CF; Caught(losses): <br/>
+                        &#x25CF; Caught(losses): {localStorage.getItem('losses')} <br/>
                         <br/>
-                        &#x25CF; Retries(reseted): <br/>
+                        &#x25CF; Retries(reseted): {localStorage.getItem('reset')} <br/>
                         <br/>
                         <br/>
                         &#x25CF; Best time: <br/>
                         <br/>
-                            &#x25CF; Easy: <br/>
-                            &#x25CF; Medium: <br/>
-                            &#x25CF; Hard: <br/>
+                            &#x25CF; Easy: {localStorage.getItem('bestTimeEasy')} seconds <br/>
+                            &#x25CF; Medium: {localStorage.getItem('bestTimeMedium')} seconds<br/>
+                            &#x25CF; Hard: {localStorage.getItem('bestTimeHard')} seconds<br/>
                         <br/>
                     </b>
                 </>}

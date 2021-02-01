@@ -63,3 +63,9 @@ export const resetButton = () => {
         type: "RESET_BUTTON",
     }
 }
+
+export const timer = () => {
+    return {
+        type: "TIMER",
+    }
+}

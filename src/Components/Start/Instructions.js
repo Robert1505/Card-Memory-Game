@@ -47,8 +47,6 @@ export default function Instructions() {
                         &#x25CF; You are a thief which is arrested for bank robbery. You want to escape from prison, but you need to break a high security system first. Escape from Prison is a CARD MEMORY GAME where you need to discover WHICH CARDS MATCH to ESCAPE from the PRISON. The CARDS represent a HIGH SECURITY PUZZLE and you need to HACK it! <br/>
                         <br/>
                         <br/>
-                        &#x25CF; Press 'P' to PAUSE the GAME! <br/>
-                        <br/>
                         &#x25CF; If there IS A MATCH, the 2 cards will be eliminated from the game. <br/>
                         &#x25CF; If there ISN'T A MATCH, the 2 cards will flip back to their original state. <br />
                         &#x25CF; When all the matches WILL BE FOUND, you will ESCAPE from the prison and you will be FREE! <br/>

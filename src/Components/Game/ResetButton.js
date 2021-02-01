@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {useSelector, useDispatch} from 'react-redux';
-import {resetButton} from '../../actions';
-import {refresh} from './Countdown';
+import { useDispatch } from 'react-redux';
+import { resetButton } from '../../actions';
 
 const useStyles = makeStyles({
     root: {
@@ -23,10 +22,17 @@ const useStyles = makeStyles({
 export default function ResetButton() {
     const classes = useStyles();
     const dispatch = useDispatch();
+    let resetMatches = localStorage.getItem('reset');
+
+    const reset = () => {
+        resetMatches++;
+        localStorage.setItem('reset', resetMatches);
+        dispatch(resetButton());
+    }
 
     return (
         <div className = "">
-            <Button onClick={() => dispatch(resetButton())} className={classes.root}>Reset Game</Button>
+            <Button onClick={() => reset()}  className={classes.root}>Reset Game</Button>
         </div>
     )
 }
